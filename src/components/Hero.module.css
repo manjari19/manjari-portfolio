@@ -1,0 +1,138 @@
+/* ── TWO-COLUMN HERO ── */
+.hero {
+  min-height: 100vh;
+  padding-top: 66px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 0 60px;
+  align-items: center;
+  position: relative;
+}
+
+.gridBg {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(var(--accent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to left, black 30%, transparent 75%);
+}
+
+/* ── LEFT ── */
+.left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 48px 0;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 26px;
+  animation: fadeUp 0.7s 0.1s var(--ease) both;
+}
+.eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
+
+.name {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  line-height: 0.93; letter-spacing: -0.045em; color: var(--text);
+  animation: fadeUp 0.85s 0.22s var(--ease) both;
+}
+.italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-weight: 400; color: var(--accent);
+}
+
+.chips {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px;
+  animation: fadeUp 0.85s 0.36s var(--ease) both;
+}
+.chip {
+  padding: 5px 14px;
+  background: var(--tag-bg); border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sub {
+  margin-top: 28px; max-width: 480px;
+  font-size: 0.88rem; line-height: 1.9; color: var(--text2);
+  animation: fadeUp 0.85s 0.48s var(--ease) both;
+}
+
+.ctas {
+  margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp 0.85s 0.58s var(--ease) both;
+}
+
+.scroll {
+  margin-top: 56px; display: flex; align-items: center; gap: 12px;
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text3);
+  animation: fadeUp 0.85s 0.72s var(--ease) both;
+}
+.scrollBar {
+  width: 38px; height: 1px; background: var(--text3);
+  position: relative; overflow: hidden;
+}
+.scrollBar::after {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%; background: var(--accent);
+  animation: scrollAnim 2s 1.8s infinite;
+}
+
+/* ── RIGHT: PHOTO ── */
+.right {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  align-self: stretch;
+  animation: fadeIn 1s 0.4s var(--ease) both;
+}
+
+.photo {
+  width: 100%; max-width: 380px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover; object-position: center top;
+  border-radius: var(--radius);
+  border: 1px solid var(--border2);
+  display: block;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border);
+}
+
+.photoPlaceholder {
+  width: 100%; max-width: 380px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; color: var(--text3);
+  text-align: center; padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+.photoPlaceholder svg { width: 44px; height: 44px; fill: var(--text3); opacity: 0.35; }
+.photoPlaceholder span { font-size: 0.7rem; line-height: 1.65; opacity: 0.55; }
+.photoPlaceholder code { font-size: 0.65rem; color: var(--accent); opacity: 0.8; }
+
+@keyframes scrollAnim { 0%{left:-100%} 50%{left:0} 100%{left:100%} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding-top: 100px;
+    gap: 48px 0;
+  }
+  .right {
+    order: -1; /* photo above text on mobile */
+    align-self: auto;
+  }
+  .photo, .photoPlaceholder { max-width: 220px; aspect-ratio: 1 / 1; }
+  .photoAccent { display: none; }
+  .name { font-size: clamp(2.8rem, 11vw, 5rem); }
+  .ctas { flex-direction: column; }
+}

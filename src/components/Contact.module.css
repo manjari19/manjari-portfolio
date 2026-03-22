@@ -1,0 +1,27 @@
+.inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sub {
+  font-size: 0.88rem; line-height: 1.85;
+  color: var(--text2); margin-bottom: 44px;
+}
+
+.links {
+  display: flex; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+}
+
+.link {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 22px;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  font-size: 0.73rem; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--text2); cursor: none;
+  transition: transform 0.2s, border-color 0.2s, color 0.2s, background 0.4s;
+}
+.link:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+.link svg { width: 15px; height: 15px; }
