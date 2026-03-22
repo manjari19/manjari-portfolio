@@ -5,19 +5,19 @@ const experience = [
   {
     date: 'Apr 2024 – Present',
     role: 'Assistant Teacher',
-    org: 'Kumon Canada — New Westminster, BC',
+    org: 'Kumon Canada, New Westminster, BC',
     bullets: [
-      'Built individualized learning plans using weekly performance data — figured out pretty quickly that one-size-fits-all doesn\'t actually work for anyone.',
-      'Tracked student progress and attendance, keeping records accurate enough that patterns were actually visible over time.',
+      'Built individualized learning plans using weekly performance data. Learned quickly that one-size-fits-all does not work in practice.',
+      'Tracked student progress and attendance, keeping records accurate enough to identify patterns over time.',
     ],
   },
   {
     date: 'Jul – Aug 2025',
     role: 'Assistant Teacher',
-    org: 'Miller Park Elementary — Coquitlam, BC',
+    org: 'Miller Park Elementary, Coquitlam, BC',
     bullets: [
-      'Designed math exercises at different difficulty levels, which meant actually understanding where each kid was rather than just following a script.',
-      'Supported classroom management and helped build routines that stuck.',
+      'Designed math exercises at different difficulty levels, which required understanding where each student was instead of following a fixed script.',
+      'Supported classroom management and helped build routines that students could follow consistently.',
     ],
   },
 ]
@@ -26,10 +26,10 @@ const education = [
   {
     date: 'Expected Jun 2027',
     role: 'Bachelor of Computer Science',
-    org: 'Simon Fraser University — Burnaby, BC',
+    org: 'Simon Fraser University, Burnaby, BC',
     bullets: [
-      'Coursework in algorithms, systems, software engineering, and machine learning. Best part has been the projects — CMPT 276 in particular.',
-      'Previously: India International School in Japan, Tokyo — High School Diploma, Honor Roll (2023).',
+      'Coursework in algorithms, systems, software engineering, and machine learning, with a strong focus on building through projects.',
+      'Previously: India International School in Japan, Tokyo : High School Diploma, Honor Roll (2023).',
     ],
   },
 ]

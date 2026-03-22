@@ -26,32 +26,29 @@ export default function About() {
       <div className="reveal">
         <div className="section-header">
           <div className="label">About Me</div>
-          <h2 className="section-title">Curious by nature,<br /><em>builder by choice.</em></h2>
+          <h2 className="section-title">From ideas,<br /><em>to results.</em></h2>
         </div>
       </div>
 
       <div className={`${styles.grid} reveal`}>
-        {/* ── LEFT: bio text ── */}
         <div className={styles.text}>
           <p>
-            I&apos;m a second-year CS student at <strong>Simon Fraser University</strong>, graduating June 2027.
-            I grew up between India and Japan, which gave me a pretty unique lens — and a strong drive
-            to build things that actually work for people with different backgrounds and needs.
+            I&apos;m a third-year CS student at <strong>Simon Fraser University</strong>, graduating June 2027.
+            I grew up between India and Japan, which shaped how I think about building and the people I build for.
           </p>
+
           <p>
-            I started coding in high school and immediately went off-script — learning things way past
-            what the curriculum covered just because I <span className={styles.hl}>couldn&apos;t stop</span>.
-            That same tendency shows up in my projects: I&apos;m drawn to problems that feel unsolved,
-            whether that&apos;s making financial literacy accessible to kids, reducing food waste through
-            computer vision, or designing apps where accessibility is the core feature, not a checkbox.
+            I started coding in high school and quickly went beyond what was taught because I <span className={styles.hl}>couldn&apos;t stop</span>.
+            That instinct stuck. I&apos;m drawn to problems that feel unfinished, whether that&apos;s making financial literacy accessible to kids,
+            reducing food waste through computer vision, or designing apps where accessibility is the core feature instead of something added later.
           </p>
+
           <p>
-            When I&apos;m not writing code, I&apos;m at the piano — composing mostly. Both feel like the same
-            thing to me: you start with constraints and try to make something that feels <em>right</em>.
+            When I&apos;m not writing code, I&apos;m at the piano, either learning my current favorite piece or composing. It feels like the same process.
+            You start with constraints and try to build something that feels <em>right</em>.
           </p>
         </div>
 
-        {/* ── RIGHT: stats + interests ── */}
         <div className={styles.right}>
           <div className={styles.statsGrid}>
             {stats.map(({ num, lbl, tooltip }) => (

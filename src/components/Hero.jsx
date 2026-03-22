@@ -32,13 +32,13 @@ export default function Hero() {
         </h1>
 
         <div className={styles.chips}>
-          {["Software Engineer", "SFU CS '27", "Vancouver, BC"].map(c => (
+          {["Software Engineer", "SFU CS '27", "Coquitlam, BC"].map(c => (
             <span key={c} className={styles.chip}>{c}</span>
           ))}
         </div>
 
         <p className={styles.sub}>
-          I started coding and went off-script pretty quickly. I kept building far beyond what was taught, and that hasn’t changed. I build products that solve real problems and feel polished enough that people actually want to use them.
+          I started coding and quickly went beyond what was taught. That hasn’t changed. I build products that solve real problems and feel polished enough that people actually want to use them.
         </p>
 
         <div className={styles.ctas}>

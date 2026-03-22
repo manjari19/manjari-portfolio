@@ -42,9 +42,7 @@ export default function Contact() {
           </h2>
         </div>
 
-        <p className={`${styles.sub} reveal`}>
-          I'm looking for internship and co-op opportunities — preferably somewhere I'll actually be building things. If you have something in mind, or just want to chat, reach out.
-        </p>
+        <p className={`${styles.sub} reveal`}>I’m currently looking for internship and co-op opportunities to gain industry experience and keep building. If you have something in mind or just want to chat, feel free to reach out. </p>
 
         <div className={`${styles.links} reveal`}>
           {links.map(({ label, href, Icon }) => (
