@@ -8,13 +8,17 @@ import Experience from './components/Experience.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 
+// Detect touch device — cursor is desktop-only
+const isTouch = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches
+
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('mp-theme') || 'dark')
-  const dotRef = useRef(null)
+  const dotRef  = useRef(null)
   const ringRef = useRef(null)
-  const mouse = useRef({ x: 0, y: 0 })
-  const ring  = useRef({ x: 0, y: 0 })
-  const raf   = useRef(null)
+  const mouse   = useRef({ x: 0, y: 0 })
+  const ring    = useRef({ x: 0, y: 0 })
+  const raf     = useRef(null)
+  const touch   = useRef(isTouch())
 
   // Apply theme to <html>
   useEffect(() => {
@@ -22,8 +26,18 @@ export default function App() {
     localStorage.setItem('mp-theme', theme)
   }, [theme])
 
-  // Cursor animation
+  // Remove no-transition after first paint so toggles animate normally
   useEffect(() => {
+    const r = requestAnimationFrame(() => {
+      document.documentElement.classList.remove('no-transition')
+    })
+    return () => cancelAnimationFrame(r)
+  }, [])
+
+  // Cursor — skip entirely on touch devices
+  useEffect(() => {
+    if (touch.current) return
+
     const onMove = (e) => { mouse.current.x = e.clientX; mouse.current.y = e.clientY }
     document.addEventListener('mousemove', onMove)
 
@@ -48,8 +62,9 @@ export default function App() {
     }
   }, [])
 
-  // Cursor hover effect — delegated
+  // Cursor hover effect — desktop only
   useEffect(() => {
+    if (touch.current) return
     const onEnter = (e) => { if (e.target.closest('a,button,.proj-card,.stat-card,.skill-group,.contact-link,.interest-item')) document.body.classList.add('cursor-hover') }
     const onLeave = (e) => { if (e.target.closest('a,button,.proj-card,.stat-card,.skill-group,.contact-link,.interest-item')) document.body.classList.remove('cursor-hover') }
     document.addEventListener('mouseover', onEnter)
@@ -62,8 +77,13 @@ export default function App() {
 
   return (
     <>
-      <div className="cursor-dot"  ref={dotRef}  />
-      <div className="cursor-ring" ref={ringRef} />
+      {/* Only render cursor elements on non-touch devices */}
+      {!touch.current && (
+        <>
+          <div className="cursor-dot"  ref={dotRef}  />
+          <div className="cursor-ring" ref={ringRef} />
+        </>
+      )}
       <Nav theme={theme} setTheme={setTheme} />
       <main>
         <div className="container"><Hero /></div>

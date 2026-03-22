@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        var theme = localStorage.getItem('mp-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        // Block all transitions until page has fully painted
+        document.documentElement.classList.add('no-transition');
+      })();
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Manjari Prasad - Personal Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,3 +1,11 @@
+/* ── NO TRANSITION ON LOAD ── */
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  transition: none !important;
+  animation-duration: 0.001ms !important;
+}
+
 /* ── TOKENS ── */
 :root {
   --accent: #10b981;
@@ -45,6 +53,13 @@ body {
   overflow-x: hidden;
   cursor: none;
   transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+
+/* Restore default cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
 }
 
 /* noise overlay */
